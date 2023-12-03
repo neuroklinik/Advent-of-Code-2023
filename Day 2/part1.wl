@@ -1,0 +1,1 @@
+Total@Flatten[FromDigits /@ StringCases[#, "Game " ~~ z : NumberString ~~ ":" -> z] & /@ Select[ReadList["games.txt", "String"], Max[FromDigits /@ StringCases[#, x : NumberString ~~ " red" -> x]] <= 12 && Max[FromDigits /@ StringCases[#, x : NumberString ~~ " green" -> x]] <= 13 && Max[FromDigits /@ StringCases[#, x : NumberString ~~ " blue" -> x]] <= 14 &]]
