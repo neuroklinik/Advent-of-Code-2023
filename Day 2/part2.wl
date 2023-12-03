@@ -1,0 +1,1 @@
+Total[Max[FromDigits /@ StringCases[#, x : NumberString ~~ " red" -> x]]*Max[FromDigits /@ StringCases[#, x : NumberString ~~ " green" -> x]]*Max[FromDigits /@ StringCases[#, x : NumberString ~~ " blue" -> x]] & /@ ReadList["/Users/cbfox01/MEMEME/Advent-of-Code-2023/Day 2/games.txt", "String"]]
