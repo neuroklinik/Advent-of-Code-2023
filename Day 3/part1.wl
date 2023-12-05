@@ -1,4 +1,4 @@
 puzzle = ReadList["input.txt", "String"];
-numbers = Flatten[Table[{i, #, StringTake[puzzle[[i]], #], False} & /@ StringPosition[puzzle[[i]], DigitCharacter .., Overlaps -> False], {i, Range[Length@puzzle]}], 1];
+numbers = Flatten[Table[{i, #, StringTake[puzzle[[i]], #]} & /@ StringPosition[puzzle[[i]], DigitCharacter .., Overlaps -> False], {i, Range[Length@puzzle]}], 1];
 symbols = Flatten[Table[{i, #[[1]]} & /@ StringPosition[puzzle[[i]], Except["." | DigitCharacter]], {i, Range[Length@puzzle]}], 1];
 Total[FromDigits[Extract[#, {3}]] & /@ DeleteDuplicates[Flatten[Table[Select[numbers, symbols[[i]][[1]] - 1 <= #[[1]] <= symbols[[i]][[1]] + 1 && (symbols[[i]][[2]] - 1 <= #[[2]][[1]] <= symbols[[i]][[2]] + 1 || symbols[[i]][[2]] - 1 <= #[[2]][[2]] <= symbols[[i]][[2]] + 1) &], {i, Length@symbols}], 1]]]
